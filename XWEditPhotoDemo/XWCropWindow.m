@@ -43,11 +43,19 @@
 - (id)initWithCoder:(NSCoder *)aDecoder{
     self = [super initWithCoder:aDecoder];
     if (self) {
+        /*Bug fix starts*/
+        
+        /*
         if (IS_WIDESCREEN) {
             [self setFrame:CGRectMake(0, 0, 320, 524)];
         } else {
             [self setFrame:CGRectMake(0, 0, 320, 436)];
         }
+         */
+        
+                [self setFrame:CGRectMake(0, 0, [ [ UIScreen mainScreen ] bounds ].size.width, [ [ UIScreen mainScreen ] bounds ].size.height-44)]; // 44 is for bar heght
+        /*Bug fix ends*/
+        
         [self initialize];
     }
     return self;
